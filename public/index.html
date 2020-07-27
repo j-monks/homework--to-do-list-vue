@@ -8,16 +8,22 @@
     <script src="./js/bundle.js"></script>
 </head>
 <body>
-    <h1>ToDo's</h1>
     <div id="app">
+        <h1>ToDo's</h1>
         <form v-on:submit.prevent="saveNewItem">
             <label for="new-item"></label>
             <input id="new-item" type="text" v-model="newItem" />
+            <label for="high-priority-button">High</label>
+            <input @click="highPriority" type="radio">
+            <label for="low-priority-button">Low</label>
+            <input @click="lowPriority" type="radio">
             <input type="submit" value="Save Item" />
         </form>
 
         <ul>
-            <li v-for="item in items">
+            <li v-for="item in items"
+            v-bind:class="item.isPriority ? 'priority' : 'not-priority'"
+            >
                 <span>{{ item.name }}</span>
             </li>
         </ul>
