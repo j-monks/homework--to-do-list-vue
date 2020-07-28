@@ -17,25 +17,14 @@
     justify-content: space-between;
   }
   
-  li span {
-    padding: 8px;
-  }
   
-  li button {
-    background: #f2360c;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  li.priority {
-    border: 2px solid #1a681e;
-    color: #1a681e;
-  }
-  
-  li.not-priority {
+  li.high {
     border: 2px solid #f2360c;
+    color: #f2360c;
+  }
+  
+  li.low {
+    border: 2px solid #1a681e;
   }
   
   input[type="text"] {

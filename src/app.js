@@ -1,32 +1,24 @@
-import Vue from 'vue';
+import Vue from "vue";
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   new Vue({
     el: "#app",
     data: {
-      items: [],
-      newItem: "",
-      newItemPriority: ""
+      todos: [],
+      newTodo: {
+        name: "",
+        priority: null
+      },
     },
     methods: {
-      saveNewItem: function() {
-        this.items.push({
-          name: this.newItem,
-          isPriority: this.newItemPriority
-      });
-        this.newItem="";
+      saveNewTodo: function(){
+        this.todos.push(this.newTodo);
+        this.newTodo = {
+          name: "",
+          priority: null
+        };
       },
-
-      highPriority: function() {
-          this.newItemPriority = true;
-      },
-
-      lowPriority: function() {
-          this.newItemPriority = false;
-      }
     }
   });
 });
-
-
 

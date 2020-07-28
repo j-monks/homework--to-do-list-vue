@@ -10,21 +10,18 @@
 <body>
     <div id="app">
         <h1>ToDo's</h1>
-        <form v-on:submit.prevent="saveNewItem">
-            <label for="new-item"></label>
-            <input id="new-item" type="text" v-model="newItem" />
-            <label for="high-priority-button">High</label>
-            <input @click="highPriority" type="radio">
-            <label for="low-priority-button">Low</label>
-            <input @click="lowPriority" type="radio">
-            <input type="submit" value="Save Item" />
+        <form v-on:submit.prevent="saveNewTodo">
+            <input type="text" id="todo-input" v-model="newTodo.name" />
+            <label for="high">High</label>
+            <input type="radio" id="high" v-model="newTodo.priority" value="high">
+            <label for="low">Low</label>
+            <input type="radio" id="low" v-model="newTodo.priority" value="low">
+            <input type="submit" value="Save Item"/>
         </form>
 
         <ul>
-            <li v-for="item in items"
-            v-bind:class="item.isPriority ? 'priority' : 'not-priority'"
-            >
-                <span>{{ item.name }}</span>
+            <li v-for="todo in todos" :class="todo.priority">
+                <span>{{ todo.name }}</span>
             </li>
         </ul>
     </div>
